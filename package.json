@@ -1,6 +1,6 @@
 {
   "name": "gulp-css-image",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A plugin for Gulp",
   "keywords": [
     "gulpplugin"
@@ -16,10 +16,10 @@
     "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "dependencies": {
-    "through2": "*",
-    "gulp-util": "~2.2.0",
-    "css-image": "0.1.0",
-    "imagesize": "*"
+    "css-image": "^0.1.0",
+    "gulp-util": "^2.2.20",
+    "imagesize": "*",
+    "through2": "*"
   },
   "devDependencies": {
     "coveralls": "*",
@@ -29,7 +29,7 @@
     "lodash": "*",
     "mocha": "*",
     "mocha-lcov-reporter": "*",
-    "should": "~2.1.0",
+    "should": "^2.1.1",
     "through2": "^0.6.3"
   },
   "engines": {
