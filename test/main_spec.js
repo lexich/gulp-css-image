@@ -8,9 +8,6 @@ var should = require("should"),
 
 describe("test grunt-css-image", function(){
 
-
-
-
   var nullimagesPath = libpath.join(__dirname, "expected", "_nullimages.css");
   var nullimages = new gutil.File({
     path: nullimagesPath,
