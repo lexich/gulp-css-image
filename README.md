@@ -42,9 +42,10 @@ gulp.task("cssimage", function(){
   return gulp.src("images/**/**")
     .pipe(cssimage({
       css: false,
-      scss: true
+      scss: true,
+      name: "image.css"
     }))
-    .pipe(gulp.dest("./image.css"))
+    .pipe(gulp.dest("."))
 });
 ```
 ```scss
@@ -70,6 +71,8 @@ gulp-css-image is gulp plugin and use [css-image](https://github.com/lexich/css-
 - root: ""
 - separator: "_"
 - prefix: "img_"
+- name: "_img.css"
 
 ## Changelog:
+0.0.2 - add `name` option of generated file
 0.0.1 - release

@@ -12,7 +12,7 @@ module.exports = function (param) {
     throw new gutil.PluginError("gulp-css-image", "No param supplied");
   }
   var options =  _.defaults(param,{ css: true, scss: false, retina: false,
-      squeeze: 1, root: "", separator: "_", prefix: "img_" });
+      squeeze: 1, root: "", separator: "_", prefix: "img_", name: "_img.css" });
 
   var info = [];
   // see "Writing a plugin"
@@ -46,6 +46,8 @@ module.exports = function (param) {
     var txt = "/* This file is generated */\n";
     txt += cssimage(info, options);
     this.push(new gutil.File({
+      base: "",
+      path: options.name,
       contents: new Buffer(txt)
     }));
     return callback();
