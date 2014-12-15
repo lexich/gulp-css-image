@@ -74,6 +74,6 @@ gulp-css-image is gulp plugin and use [css-image](https://github.com/lexich/css-
 - name: "_img.css"
 
 ## Changelog:
-0.0.3 - bug fix (add lodash to deps)
+0.0.3 - bug fix (add lodash to deps)  
 0.0.2 - add `name` option of generated file  
 0.0.1 - release  
