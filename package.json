@@ -1,6 +1,6 @@
 {
   "name": "gulp-css-image",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A plugin for Gulp",
   "keywords": [
     "gulpplugin"
@@ -19,6 +19,7 @@
     "css-image": "~0.1.1",
     "gulp-util": "~3.0.1",
     "imagesize": "~1.0.0",
+    "lodash": "^2.4.1",
     "through2": "~1.1.1"
   },
   "devDependencies": {
@@ -26,7 +27,6 @@
     "event-stream": "~3.1.7",
     "gulp": "~3.8.10",
     "istanbul": "*",
-    "lodash": "*",
     "mocha": "*",
     "mocha-lcov-reporter": "*",
     "should": "~4.3.0"
