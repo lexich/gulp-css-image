@@ -1,13 +1,12 @@
-var should = require("should"),
-    gutil = require("gulp-util"),
+var gutil = require("gulp-util"),
     gulp = require("gulp"),
     fs = require("fs"),
     cssimage = require("../"),
     through2 = require("through2"),
-    libpath = require("path");
+    libpath = require("path"),
+    should = require("chai").should();
 
 describe("test grunt-css-image", function(){
-
   var nullimagesPath = libpath.join(__dirname, "expected", "_nullimages.css");
   var nullimages = new gutil.File({
     path: nullimagesPath,
@@ -38,10 +37,11 @@ describe("test grunt-css-image", function(){
       prefix: "custom-",
       root: "http://example.com",
       separator: "--"
-    }).pipe(through2.obj(function(newFile){
+    }).pipe(through2.obj(function(newFile, enc, cb){
       should.exist(newFile);
       should.exist(newFile.contents);
       contents.should.eql(newFile.contents.toString());
+      cb();
       done();
     }));
   });
@@ -53,10 +53,11 @@ describe("test grunt-css-image", function(){
     check({
       sass: true,
       css: true
-    }).pipe(through2.obj(function(newFile){
+    }).pipe(through2.obj(function(newFile, enc, cb){
       should.exist(newFile);
       should.exist(newFile.contents);
       contents.should.eql(newFile.contents.toString());
+      cb();
       done();
     }));
   });
@@ -68,10 +69,11 @@ describe("test grunt-css-image", function(){
     check({
       sass: false,
       css: false
-    }).pipe(through2.obj(function(newFile){
+    }).pipe(through2.obj(function(newFile, enc, cb){
       should.exist(newFile);
       should.exist(newFile.contents);
       contents.should.eql(newFile.contents.toString());
+      cb();
       done();
     }));
   });
@@ -84,10 +86,11 @@ describe("test grunt-css-image", function(){
       sass: true,
       css: false,
       retina: true
-    }).pipe(through2.obj(function(newFile){
+    }).pipe(through2.obj(function(newFile, enc, cb){
       should.exist(newFile);
       should.exist(newFile.contents);
       contents.should.eql(newFile.contents.toString());
+      cb();
       done();
     }));
   });
