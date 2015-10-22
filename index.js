@@ -9,7 +9,7 @@ module.exports = function (param) {
   "use strict";
   // if necessary check for required param(s), e.g. options hash, etc.
   if (!param) {
-    throw new gutil.PluginError("gulp-css-image", "No param supplied");
+    param = {};
   }
   var options =  _.defaults(param,{ css: true, scss: false, retina: false,
       squeeze: 1, root: "", separator: "_", prefix: "img_", name: "_img.css" });
