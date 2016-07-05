@@ -17,19 +17,19 @@
   },
   "dependencies": {
     "css-image": "0.2.2",
-    "gulp-util": "3.0.6",
+    "gulp-util": "3.0.7",
     "imagesize": "1.0.0",
-    "lodash": "3.10.0",
-    "through2": "2.0.0"
+    "lodash": "4.13.1",
+    "through2": "2.0.1"
   },
   "devDependencies": {
-    "chai": "3.4.1",
-    "coveralls": "2.11.6",
-    "event-stream": "3.3.2",
-    "gulp": "3.9.0",
-    "istanbul": "0.4.2",
-    "mocha": "2.3.4",
-    "mocha-lcov-reporter": "1.0.0"
+    "chai": "3.5.0",
+    "coveralls": "2.11.9",
+    "event-stream": "3.3.3",
+    "gulp": "3.9.1",
+    "istanbul": "0.4.4",
+    "mocha": "2.5.3",
+    "mocha-lcov-reporter": "1.2.0"
   },
   "engines": {
     "node": ">=0.8.0",

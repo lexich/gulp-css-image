@@ -1,7 +1,7 @@
 var through2 = require("through2"),
   imagesize = require("imagesize"),
   libpath = require("path"),
-  _ = require("lodash"),
+  defaults = require("lodash/defaults"),
   cssimage = require("css-image");
   gutil = require("gulp-util");
 
@@ -11,7 +11,7 @@ module.exports = function (param) {
   if (!param) {
     param = {};
   }
-  var options =  _.defaults(param,{ css: true, scss: false, retina: false,
+  var options =  defaults(param,{ css: true, scss: false, retina: false,
       squeeze: 1, root: "", separator: "_", prefix: "img_", name: "_img.css" });
 
   var info = [];
