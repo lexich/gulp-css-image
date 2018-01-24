@@ -13,7 +13,8 @@
   "repository": "lexich/gulp-css-image",
   "scripts": {
     "test": "istanbul test _mocha --report html -- test/*.js --reporter spec",
-    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "release": "npm test && standard-version && git push --follow-tags origin master --no-verify && npm publish"
   },
   "dependencies": {
     "css-image": "0.2.3",
@@ -29,7 +30,8 @@
     "gulp": "3.9.1",
     "istanbul": "0.4.4",
     "mocha": "2.5.3",
-    "mocha-lcov-reporter": "1.2.0"
+    "mocha-lcov-reporter": "1.2.0",
+    "standard-version": "^4.3.0"
   },
   "engines": {
     "node": ">=0.8.0",
