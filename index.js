@@ -1,5 +1,5 @@
 var through2 = require("through2"),
-  imagesize = require("imagesize"),
+  sizeOf = require("image-size"),
   libpath = require("path"),
   defaults = require("lodash/defaults"),
   cssimage = require("css-image");
@@ -31,14 +31,13 @@ module.exports = function (param) {
     }
     // check if file.contents is a `Buffer`
     if (file.isBuffer() || file.isFile()) {
-      var parser = imagesize.Parser();
-
-      var retStatus = parser.parse(file.contents);
-      if (imagesize.Parser.DONE === retStatus) {
-        var result = parser.getResult();
-        result.file = libpath.relative(file.base, file.path)
-        info.push(result);
-      }
+	  try {
+		var result = sizeOf(file.path);
+		
+		result.file = libpath.relative(file.base, file.path);      
+		info.push(result);    
+	  } catch(e) {
+	  }
     }
     return callback();
   }
