@@ -2,8 +2,9 @@ var through2 = require("through2"),
   sizeOf = require("image-size"),
   libpath = require("path"),
   defaults = require("lodash/defaults"),
-  cssimage = require("css-image");
-  gutil = require("gulp-util");
+  cssimage = require("css-image"),
+  Vinyl = require('vinyl'),
+  PluginError = require('plugin-error');
 
 module.exports = function (param) {
   "use strict";
@@ -11,8 +12,16 @@ module.exports = function (param) {
   if (!param) {
     param = {};
   }
-  var options =  defaults(param,{ css: true, scss: false, retina: false,
-      squeeze: 1, root: "", separator: "_", prefix: "img_", name: "_img.css" });
+  var options = defaults(param, {
+    css: true,
+    scss: false,
+    retina: false,
+    squeeze: 1,
+    root: "",
+    separator: "_",
+    prefix: "img_",
+    name: "_img.css"
+  });
 
   var info = [];
   // see "Writing a plugin"
@@ -26,26 +35,26 @@ module.exports = function (param) {
     }
     if (file.isStream()) {
       this.emit("error",
-        new gutil.PluginError("gulp-css-image", "Stream content is not supported"));
+        new PluginError("gulp-css-image", "Stream content is not supported"));
       return callback();
     }
     // check if file.contents is a `Buffer`
     if (file.isBuffer() || file.isFile()) {
-	  try {
-		var result = sizeOf(file.path);
-		
-		result.file = libpath.relative(file.base, file.path);      
-		info.push(result);    
-	  } catch(e) {
-	  }
+      try {
+        var result = sizeOf(file.path);
+
+        result.file = libpath.relative(file.base, file.path);
+        info.push(result);
+      } catch (e) {}
     }
     return callback();
   }
-  function flush_css_image(callback){
+
+  function flush_css_image(callback) {
     var txt = "/* This file is generated */\n";
     txt += cssimage(info, options);
-    this.push(new gutil.File({
-      base: "",
+    this.push(new Vinyl({
+      base: ".",
       path: options.name,
       contents: new Buffer(txt)
     }));
