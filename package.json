@@ -27,7 +27,7 @@
   "devDependencies": {
     "chai": "4.2.0",
     "coveralls": "3.0.2",
-    "event-stream": "4.0.1",
+    "event-stream": "^3.3.4",
     "gulp": "4.0.0",
     "istanbul": "0.4.5",
     "mocha": "5.2.0",
